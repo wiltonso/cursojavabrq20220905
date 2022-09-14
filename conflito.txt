@@ -1,0 +1,5 @@
+Conflito.txt arquivo criado...
+para teste
+do professor
+para simular 
+Conflito
