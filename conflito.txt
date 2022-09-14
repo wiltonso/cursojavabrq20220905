@@ -1,4 +1,4 @@
-Conflito.txt arquivo criado...
+Alterado linha na branch wsoarqs
 para teste
 do professor
 para simular 
