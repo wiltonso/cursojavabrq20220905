@@ -1,5 +1,5 @@
-Conflito.txt arquivo criado...
-para teste
+Alterado a linha 1 em teste.
+para testegit
 do professor
 para simular 
 Conflito
