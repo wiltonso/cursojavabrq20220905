@@ -3,3 +3,5 @@ para teste
 do professor
 para simular 
 Conflito
+Incluido a linha 6 
+e linha 7
