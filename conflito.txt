@@ -1,5 +1,2 @@
 Alterado linha na branch wsoarqs
-para teste
-do professor
-para simular 
-Conflito
+Alterado a linha 1 em teste.
