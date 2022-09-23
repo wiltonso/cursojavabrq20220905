@@ -50,6 +50,7 @@ cd .. - volta um diretorio
 cd /usr/share/nginx/html
 cd \ volta para o rais
 mkdir - cria uma pasta
+touch nome.arq - cria um arquivo
 exit - sai do linux e volta para usa maquina
 
 # dentro do container, iremos criar uma pasta
@@ -84,4 +85,31 @@ Resp: usando o conceito de volume
     docker rm hello-world
     
     docker run --name hello-world -p 80:80 -p 8000:80 -v ${PWD}/meu-volume:/meu-volume-container docker/getting-started
+
+     docker run --name hello-wilton -p 81:80 -p 8001:80 -v ${PWD}/meu-volwil:/meu-volwil-container docker/getting-started
 ```
+
+docker run -d --name=mysql-java -p 3306:3306 --env="MYSQL_ROOT_PASSWORD=root" -v ${PWD}/mysql-datadir:/var/lib/mysql    mysql
+
+entrar no sql via terminal
+docker exec -it mysql-java /bin/sh
+
+Logar no DB
+mysql -uroot -proot
+
+ create database dbcorrentista;
+ use dbcorrentista;
+
+create table cuentas ( cd_contas int primary key auto_increment, nombre varchar(40) );
+
+insert into cuentas (nombre) VALUES ('JUAN');
+
+para sair do termnal SQL quit
+
+dockerfile... sao as parametrização para levantar uma imagem docker
+no geral quando criamos nossa imagem partimos de uma outra padrao.
+subindo 
+docker run --name nginx -p 80:80 nginx:latest
+
+para listar as images disponiveis
+docker images 
