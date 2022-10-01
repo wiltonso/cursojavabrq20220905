@@ -1,0 +1,6 @@
+set 29, 2022 7:04:19 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service [Tomcat]
+set 29, 2022 7:04:19 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet engine: [Apache Tomcat/9.0.65]
+set 29, 2022 7:04:20 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring embedded WebApplicationContext
