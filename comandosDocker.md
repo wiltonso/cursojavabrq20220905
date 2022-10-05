@@ -92,7 +92,7 @@ Resp: usando o conceito de volume
 docker run -d --name=mysql-java -p 3306:3306 --env="MYSQL_ROOT_PASSWORD=root" -v ${PWD}/mysql-datadir:/var/lib/mysql    mysql
 
 entrar no sql via terminal
-docker exec -it mysql-java /bin/sh
+
 
 Logar no DB
 mysql -uroot -proot
@@ -113,3 +113,6 @@ docker run --name nginx -p 80:80 nginx:latest
 
 para listar as images disponiveis
 docker images 
+
+subir uma image criada por nos
+docker run --name brq-nginx-container -p 90:80 brq-nginx:latest
