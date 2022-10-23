@@ -89,20 +89,34 @@ Resp: usando o conceito de volume
      docker run --name hello-wilton -p 81:80 -p 8001:80 -v ${PWD}/meu-volwil:/meu-volwil-container docker/getting-started
 ```
 
-docker run -d --name=mysql-java -p 3306:3306 --env="MYSQL_ROOT_PASSWORD=root" -v ${PWD}/mysql-datadir:/var/lib/mysql    mysql
+docker run -d --name=mysql-java3 -p 3307:3306 --env="MYSQL_ROOT_PASSWORD=root" -v ${PWD}/mysql-datadir:/var/lib/mysql    mysql
 
 entrar no sql via terminal
+docker exec -it mysql-java3 /bin/sh
 
 
 Logar no DB
 mysql -uroot -proot
 
  create database dbcorrentista;
+ create database dbwilton;
  use dbcorrentista;
 
-create table cuentas ( cd_contas int primary key auto_increment, nombre varchar(40) );
+create table cuentas ( cd_contas int primary key auto_increment, 
+nombre varchar(40) );
 
 insert into cuentas (nombre) VALUES ('JUAN');
+
+use dbwilton;
+create table usuario (usuid int primary key auto_increment, 
+                      usunome varchar(40),
+                      usuemail varchar(30));
+insert into usuario (usunome, usuemail ) VALUES ('Wilton', 'wil@gmail.com');
+insert into usuario (usunome, usuemail ) VALUES ('Angela', 'ang@gmail.com');
+create table professor (proid int primary key auto_increment, 
+                      pronome varchar(40),
+                      proemail varchar(30));
+
 
 para sair do termnal SQL quit
 
@@ -116,3 +130,60 @@ docker images
 
 subir uma image criada por nos
 docker run --name brq-nginx-container -p 90:80 brq-nginx:latest
+
+conectar ao db2 dbwever
+docker run -d --name=mysql-java2 -p 3306:3307 --env="MYSQL_ROOT_PASSWORD=root"  mysql
+server host: localhost:3306?allowPublicKeyRetrieval=true&useSSL=False
+
+localhost:3306?allowPublicKeyRetrieval=true&useSSL=False
+
+Docker fica olhando a pasta user.. criar a pasta dentro usuario
+Na pasta de projeto criar arquivos:
+- www - (nesta pasta criar dados projeto)
+- dockerfile
+Configuracoes.
+Criar arquivo dockerfile (sem extensao)
+dockerfile:
+FROM php:7.4.apache (imagem a ser copiada)
+RUN docker-php-ext-install pdo pdo-mysql (extensoes necessadrias)
+COPY WWW/ /var/www/html
+
+Cria arquivo:
+docker-compose.yml
+version: "3"
+
+services:
+    www:
+        build: .
+        restart: always
+        ports:
+            - '8000':80
+        volumes:
+            - ./www:/var/www/htm
+        networks:
+            - default
+    db: 
+        image: mysql:5.7
+        restart: always
+        ports:
+            - '3306:3306'
+        environment: 
+            MYSQL_DATABASE: meudb
+            MYSQL_USER: wilton
+            MYSQL_PASSWORD: 1234
+            MYSQL_ROOT_PASSWORD: root
+        volumes:
+            -db_data:/var/lib/mysql
+        networks:
+            - default
+volumes:
+    db_data:
+
+
+para rodar o projeto
+docker-compose up -d (sob e libera o terminal para uso)
+docker machine ip (para ver os ip dos )
+docker container ls (ver o que está rodando)
+docker-compose stop
+docker-compose down (deleta o container deixando os dados)
+docker-compose down --volume  (deleta tudo incluindo os dados)

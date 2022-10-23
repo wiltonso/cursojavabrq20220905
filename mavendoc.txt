@@ -1,0 +1,31 @@
+
+Lib para formata os get e settergi
+<dependency>
+		<groupId>org.projectlombok</groupId>
+		<artifactId>lombok</artifactId>
+		<optional>true</optional>
+</dependency>
+
+Criar um novo micro serviço que faz um CRUD em de Professores. Criar um ArrayList na camada de Controller para armazenar os professores. 
+
+Cada professor deve ter id, nome, email , salario,  rua, número, cep
+Ir no    start.spring.io     e gerar um novo micro serviço
+
+A camada Service é responsável por armazenar as regras de negócio da aplicação
+
+ELK -> 
+E -> ElasticSearch
+L -> LogStash
+K - Kibanna
+
+dependency 
+JPA - Padronização para acesso a banco de dados
+Incluir o drive do banco que vai utilizar no seu projectlombok
+
+CREATE DATABASE db_curso_java;
+use db_curso_java;
+CREATE TABLE usuarios(
+	id_user int primary key auto_increment,
+	nome_user varchar(40),
+	email_user varchar(50)
+);
